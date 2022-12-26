@@ -82,6 +82,31 @@ body {
   }
 }
 
+.trash-collected {
+  z-index: 100;
+  font-size: 3vmin;
+  position: absolute;
+  bottom: 90vh;
+  right: 10vmin;
+  color: white;
+  margin: 0;
+  opacity: 50%;
+  text-shadow: 0 0 5px hsla(0, 0%, 0%, 0.5);
+}
+
+.fadeOut {
+  animation: fadeOut 12s linear;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 :root {
   --v1: #be91c6;
   --v2: #8a65cc;

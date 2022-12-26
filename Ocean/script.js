@@ -1,5 +1,10 @@
 const trashContainer = document.querySelector(".trash-container");
 const moneyElement = document.querySelector(".money");
+
+const trashCollected = document.querySelector(".trash-collected");
+let counter = 0;
+let totalTrashCounter = 0;
+
 const currencyFormatter = new Intl.NumberFormat("en-us", {
   style: "currency",
   currency: "USD",
@@ -52,15 +57,18 @@ async function setupTrash() {
 
   Object.values(trashAmount).forEach(({ amount, icon }) => {
     for (let i = 0; i < amount; i++) {
-      createTrash(icon);
+      createTrash(amount, icon);
+      totalTrashCounter += 1;
     }
   });
+  console.log(`Total Amount of Trash: ${totalTrashCounter}`);
 }
 
-function createTrash(icon) {
+function createTrash(amount, icon) {
   const img = document.createElement("img");
   img.classList.add("trash");
-  const top = randomNumberBetween(0, 50);
+  img.setAttribute("draggable", true);
+  const top = randomNumberBetween(0, 40);
   const size = top / 5 + 1;
   img.src = `imgs/${icon}.svg`;
   img.style.width = `${size}vmin`;
@@ -69,6 +77,19 @@ function createTrash(icon) {
   img.style.left = `${randomNumberBetween(0, 100)}vw`;
   img.style.setProperty("--rotation", `${randomNumberBetween(-30, 30)}deg`);
   trashContainer.appendChild(img);
+
+  img.addEventListener("click", (event) => {
+    if (event.button === 0) {
+      counter += 1;
+      trashCollected.innerHTML = `Trash Collected: ${counter}`;
+      img.remove();
+      if (document.querySelectorAll("img").length === 0) {
+        trashCollected.innerHTML = `Congratulations!\nThere is no trash.`;
+        trashCollected.classList.add("fadeOut");
+        trashCollected.style.opacity = 0;
+      }
+    }
+  });
 }
 
 function randomNumberBetween(min, max) {
