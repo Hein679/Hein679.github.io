@@ -96,4 +96,22 @@ function randomNumberBetween(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+function on() {
+  document.getElementById("overlay").style.display = "block";
+}
+
+function off() {
+  document.getElementById("overlay").style.display = "none";
+}
+
+// window.addEventListener("load", function () {
+//   document.getElementById("overlay").style.display = "block";
+// });
+
+// document.addEventListener("click", function (event) {
+//   if (!event.target.closest(".overlay")) {
+//     document.getElementById("overlay").style.display = "none";
+//   }
+// });
+
 setupTrash();

@@ -21,7 +21,7 @@ body {
 }
 
 .logo::before {
-  content: "";
+  content: "!";
   background: url(imgs/team-seas-logo.png);
   position: absolute;
   width: 100%;
@@ -107,6 +107,123 @@ body {
   }
 }
 
+.tip {
+  z-index: 100;
+  font-size: 3vmin;
+  color: white;
+  margin: 0;
+  opacity: 50%;
+  text-shadow: 0 0 5px hsla(0, 0%, 0%, 0.5);
+}
+
+.hint1 {
+  position: absolute;
+  bottom: 93.5vh;
+  left: 24vmin;
+}
+
+.hint2 {
+  position: absolute;
+  bottom: 93.5vh;
+  left: 36vmin;
+}
+
+.hint3 {
+  position: absolute;
+  bottom: 93.5vh;
+  left: 48vmin;
+}
+
+.info {
+  position: absolute;
+  bottom: 93.5vh;
+  left: 12vmin;
+}
+
+/* CSS TOOLTIP */
+.tipText {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  z-index: 100;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s;
+}
+
+.tip:hover .tipText {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tipText {
+  background-color: #222;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  font-size: 2vmin;
+  padding: 6px 10px;
+  position: absolute;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: none;
+  z-index: 100;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tipText--bottom {
+  top: 130%;
+  left: 50%;
+  margin-top: -10px;
+  margin-left: -60px;
+  width: 100px;
+}
+
+.tipText--bottom:after {
+  border-bottom: 5px solid #222;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  top: -5px;
+  left: 50%;
+  margin-left: -5px;
+}
+
+.tip:hover .tipText--bottom {
+  margin-top: 0;
+}
+
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.692);
+  z-index: 999;
+  cursor: pointer;
+}
+
+#text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+/* CodePen CSS start */
 :root {
   --v1: #be91c6;
   --v2: #8a65cc;
