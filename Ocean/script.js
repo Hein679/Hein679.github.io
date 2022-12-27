@@ -104,14 +104,8 @@ function off() {
   document.getElementById("overlay").style.display = "none";
 }
 
-// window.addEventListener("load", function () {
-//   document.getElementById("overlay").style.display = "block";
-// });
-
-// document.addEventListener("click", function (event) {
-//   if (!event.target.closest(".overlay")) {
-//     document.getElementById("overlay").style.display = "none";
-//   }
-// });
+window.addEventListener("load", function () {
+  on();
+});
 
 setupTrash();
